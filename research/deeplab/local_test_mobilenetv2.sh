@@ -78,7 +78,7 @@ PASCAL_DATASET="${WORK_DIR}/${DATASET_DIR}/${PASCAL_FOLDER}/tfrecord"
 NUM_ITERATIONS=10
 python "${WORK_DIR}"/train.py \
   --logtostderr \
-  --train_split="trainval" \
+  --train_split="train" \
   --model_variant="mobilenet_v2" \
   --output_stride=16 \
   --train_crop_size="513,513" \
