@@ -27,15 +27,15 @@
 set -e
 
 # Move one-level up to tensorflow/models/research directory.
-cd ..
+# not neccessary for my colab use
+# cd ..
 
 # Update PYTHONPATH.
 export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 
 # Set up the working environment.
 CURRENT_DIR=$(pwd)
-#add /research/ so that it works in colab notebook
-WORK_DIR="${CURRENT_DIR}/research/deeplab"
+WORK_DIR="${CURRENT_DIR}/deeplab"
 
 # Run model_test first to make sure the PYTHONPATH is correctly set.
 # remove -v from model_test.py -v 
