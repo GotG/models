@@ -80,9 +80,9 @@ python "${WORK_DIR}"/train.py \
   --logtostderr \
   --train_split="train" \
   --model_variant="mobilenet_v2" \
-  --output_stride=16 \
+  --output_stride=8 \
   --train_crop_size="513,513" \
-  --train_batch_size=4 \
+  --train_batch_size=12 \
   --training_number_of_steps="${NUM_ITERATIONS}" \
   --fine_tune_batch_norm=true \
   --tf_initial_checkpoint="${INIT_FOLDER}/${CKPT_NAME}/model.ckpt-30000" \
