@@ -27,7 +27,8 @@
 set -e
 
 # Move one-level up to tensorflow/models/research directory.
-cd ..
+# not neccessary for my colab use
+# cd ..
 
 # Update PYTHONPATH.
 export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
@@ -37,7 +38,8 @@ CURRENT_DIR=$(pwd)
 WORK_DIR="${CURRENT_DIR}/deeplab"
 
 # Run model_test first to make sure the PYTHONPATH is correctly set.
-python "${WORK_DIR}"/model_test.py -v
+# remove -v from model_test.py -v 
+python "${WORK_DIR}"/model_test.py
 
 # Go to datasets folder and download PASCAL VOC 2012 segmentation dataset.
 DATASET_DIR="datasets"
@@ -76,11 +78,11 @@ PASCAL_DATASET="${WORK_DIR}/${DATASET_DIR}/${PASCAL_FOLDER}/tfrecord"
 NUM_ITERATIONS=10
 python "${WORK_DIR}"/train.py \
   --logtostderr \
-  --train_split="trainval" \
+  --train_split="train" \
   --model_variant="mobilenet_v2" \
-  --output_stride=16 \
+  --output_stride=8 \
   --train_crop_size="513,513" \
-  --train_batch_size=4 \
+  --train_batch_size=12 \
   --training_number_of_steps="${NUM_ITERATIONS}" \
   --fine_tune_batch_norm=true \
   --tf_initial_checkpoint="${INIT_FOLDER}/${CKPT_NAME}/model.ckpt-30000" \
